@@ -2,12 +2,13 @@
 using UnityEngine.SceneManagement;
 
 public class SelectionManager : MonoBehaviour
-{
-    [SerializeField] private string selectableTag = "Selectable";
+{   
 
+    private IRayProvider _rayProvider;
+    private ISelector _selector;
     private ISelectionResponse _selectionResponse;
 
-    private Transform _selection;
+    private Transform _currentSelection;
 
 
     private void Awake()
@@ -15,35 +16,27 @@ public class SelectionManager : MonoBehaviour
         SceneManager.LoadScene("Environment", LoadSceneMode.Additive);
         SceneManager.LoadScene("UI", LoadSceneMode.Additive);
 
-        _selectionResponse = GetComponent<ISelectionResponse>(); 
+        _selectionResponse = GetComponent<ISelectionResponse>();
+        _rayProvider = GetComponent<IRayProvider>();
+        _selector = GetComponent<ISelector>();
     }
 
     private void Update()
     {
-        // Deselection/Selection Response
-        if (_selection != null)
+        if (_currentSelection != null)
         {
-            _selectionResponse.OnDeselect(_selection);
+            _selectionResponse.OnDeselect(_currentSelection);
         }
 
-        //Creating a Ray
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        var ray = _rayProvider.CreateRay();
 
-        //Selection Determination
-        _selection = null;
-        if (Physics.Raycast(ray, out var hit))
-        {
-            var selection = hit.transform;
-            if (selection.CompareTag(selectableTag))
-            {
-                _selection = selection;
-            }
-        }
+       _selector.Check(ray); 
 
-        //Deslection/Selection Response
-        if (_selection != null)
+        _currentSelection = _selector.GetSelection();
+
+        if (_currentSelection != null)
         {
-            _selectionResponse.OnSelect(_selection);
+            _selectionResponse.OnSelect(_currentSelection);
         }
     }
 }

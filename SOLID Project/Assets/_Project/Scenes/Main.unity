@@ -507,6 +507,8 @@ GameObject:
   - component: {fileID: 1550730621}
   - component: {fileID: 1550730620}
   - component: {fileID: 1550730622}
+  - component: {fileID: 1550730624}
+  - component: {fileID: 1550730623}
   m_Layer: 0
   m_Name: Selection Manager
   m_TagString: Untagged
@@ -526,7 +528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1db4ff5c33e9b34f9763faa73a57710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectableTag: Selectable
 --- !u!4 &1550730621
 Transform:
   m_ObjectHideFlags: 0
@@ -554,6 +555,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffd77be090681b469ef103ccf7a3971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1550730623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550730619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630368d81924ccd4aad1bbe57ee8cbf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1550730624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550730619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dbbc646639b1e4c9523a61965ee25d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectableTag: Selectable
 --- !u!1 &1671565416
 GameObject:
   m_ObjectHideFlags: 0
