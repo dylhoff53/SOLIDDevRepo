@@ -507,8 +507,8 @@ GameObject:
   - component: {fileID: 1550730621}
   - component: {fileID: 1550730620}
   - component: {fileID: 1550730622}
-  - component: {fileID: 1550730624}
   - component: {fileID: 1550730623}
+  - component: {fileID: 1550730624}
   m_Layer: 0
   m_Name: Selection Manager
   m_TagString: Untagged
@@ -576,10 +576,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1550730619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30dbbc646639b1e4c9523a61965ee25d, type: 3}
+  m_Script: {fileID: 11500000, guid: 14422c3d5ebbd464e9b10c8087e391f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectableTag: Selectable
+  selectables:
+  - {fileID: 1671565420}
+  - {fileID: 89753537}
+  - {fileID: 243004860}
+  - {fileID: 1699849479}
 --- !u!1 &1671565416
 GameObject:
   m_ObjectHideFlags: 0
